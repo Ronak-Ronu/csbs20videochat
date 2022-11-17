@@ -1,2 +1,1 @@
-web: npm run devStart
-web: peerjs --port 2002
+web: node server.js

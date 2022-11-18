@@ -2,7 +2,7 @@ const socket=io('/')
 const videogrid = document.getElementById('video-grid')
 const mypeer= new Peer({
     
-    host:'peerjs-server.herokuapp.com',
+    host:'https://csbs20videochat.herokuapp.com/',
     secure:true,
     port:443
 })

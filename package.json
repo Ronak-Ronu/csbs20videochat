@@ -4,9 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "PROD=true node run server.js",
+    "start": "PROD=true node server.js",
     "devStart": "nodemon run server.js",
-    "postinstall": "cd .. cd videochat && yarn"
+    "postinstall": "cd ../videochat && yarn"
   },
   "keywords": [],
   "author": "",

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "PROD=true node server.js",
     "devStart": "nodemon run server.js",
-    "postinstall": "cd .. cd videochat"
+    "postinstall": "cd .. cd VIDEOCHAT && peerjs --port 2002"
   },
   "keywords": [],
   "author": "",

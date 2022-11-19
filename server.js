@@ -28,7 +28,7 @@ io.on('connection',socket =>{
 if(process.env.PROD){
     app.use(express.static(path.join(__dirname,'./videochat/public/script.js')));
     app.get('*',(req,res)=>{
-        res.sendFile(path.join(__dirname,'./VIDEOCHAT/views/room.ejs'));
+        res.sendFile(path.join(__dirname,'./videochat/views/room.ejs'));
     });
 }
 

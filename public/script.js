@@ -1,10 +1,8 @@
 const socket=io('/')
 const videogrid = document.getElementById('video-grid')
-const mypeer= new Peer({
-    
-    host:'https://csbs20videochat.herokuapp.com/',
-    secure:true,
-    port:443
+const mypeer= new Peer(undefined,{
+    host:'/',
+    port:'2002'
 })
 const myvideo=document.createElement('video')
 myvideo.muted=true

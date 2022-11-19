@@ -1,6 +1,8 @@
+require("dotenv").config()
 const { Socket } = require('engine.io')
 const express= require('express')
 const { request } = require('http')
+const path = require("path")
 const app = express()
 const server = require('http').Server(app)
 const io= require('socket.io')(server)
@@ -23,4 +25,13 @@ io.on('connection',socket =>{
         })
     })
 })
-server.listen(9000)
+
+if(process.env.PROD){
+    app.use(express.static(path.join(__dirname,'../VIDEOCHAT/views/room.ejs')));
+    app.get('*',(req,res)=>{
+        res.sendFile(path.join(__dirname,'../VIDEOCHAT/views/room.ejs'));
+    });
+}
+
+const port = process.env.PORT || 9000;
+server.listen(port)

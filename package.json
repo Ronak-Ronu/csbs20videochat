@@ -6,7 +6,7 @@
   "scripts": {
     "start": "PROD=true node server.js",
     "devStart": "nodemon run server.js",
-    "postinstall": "cd .. cd videochat && yarn"
+    "postinstall": "cd .. cd videochat && yarn public"
   },
   "keywords": [],
   "author": "",

@@ -1,19 +1,11 @@
 const { Server } = require('socket.io');
 const socket=io('/')
-var peerserver=require('peer').ExpressPeerServer;
-var options={
-    debug:true,
-    allow_discovery:true
-};
-let mypeerserver=peerserver(Server,options);
-app.use("/peerjs",mypeerserver)
 const videogrid = document.getElementById('video-grid')
 const mypeer= new Peer(undefined,{
     secure:true,
     host:'csbs20videochat.herokuapp.com',
     port:2002
 })
-
 const myvideo=document.createElement('video')
 myvideo.muted=true
 const peers={}

@@ -29,7 +29,7 @@ io.on('connection',socket =>{
 if(process.env.PROD){
     app.use(express.static(path.join(__dirname,'../VIDEOCHAT/views/room.ejs')));
     app.get('*',(req,res)=>{
-        res.sendFile(path.join(__dirname,'../VIDEOCHAT/views/room.ejs'));
+        res.sendFile(path.join(__dirname,'../VIDEOCHAT/views/room.js'));
     });
 }
 

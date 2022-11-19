@@ -1,1 +1,1 @@
-web: nodemon run server.js peerjs --port https://csbs20videochat.herokuapp.com/
+web: nodemon run server.js script.js

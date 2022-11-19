@@ -4,9 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "PROD=true node server.js",
+    "start": "PROD=true node run server.js",
     "devStart": "nodemon run server.js",
-    "postinstall": "cd .. cd VIDEOCHAT && peerjs --port 2002"
+    "postinstall": "cd .. cd VIDEOCHAT && yarn"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +17,8 @@
     "express": "^4.18.2",
     "peer": "^0.6.1",
     "socket.io": "^4.5.3",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

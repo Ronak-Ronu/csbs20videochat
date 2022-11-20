@@ -5,7 +5,7 @@ const io=require('socket.io')(server);
 const { v4:uuidv4} = require('uuid');
 const {ExpressPeerServer}=require('peer');
 const peerServer=ExpressPeerServer(server,{
-    debug:true
+    debug:true 
 });
 app.set('view engine','ejs');
 app.use(express.static('public'));

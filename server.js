@@ -1,36 +1,26 @@
-require("dotenv").config()
-const { Socket } = require('engine.io')
-const express= require('express')
-const { request } = require('http')
-const path = require("path")
-const app = express()
-const server = require('http').Server(app)
-const io= require('socket.io')(server)
-const { v4: uuidV4 } =require('uuid')
-app.set('view engine','ejs')
-app.use(express.static('public'))
-app.get('/',(req,res)=>{
-    res.redirect(`/${uuidV4()}`)
+const express = require('express');
+const app =  express()
+const server= require('http').Server(app);
+const io=require('socket.io')(server);
+
+const { v4:uuidv4} = require('uuid');
+const {ExpressPeerServer}=require('peer');
+const peerServer=ExpressPeerServer(server,{
+    debug:true
+});
+app.set('view engine','ejs');
+app.use(express.static('public'));
+app.use('/peerjs',peerServer);
+app.get('/',(req,res) => {
+    res.redirect(`/${uuidv4()}`);
 })
-app.get('/:room',(req,res)=>{
-    res.render('room',{roomid:req.params.room})
+app.get('/:room',(req,res) => {
+    res.render('room',{ roomId: req.params.room});
 })
-io.on('connection',socket =>{
-    socket.on('join-room',(roomid,userid)=>{
-        socket.join(roomid)
-        socket.broadcast.to(roomid).emit('user-connected',userid)
-        socket.on('disconnect',()=>{
-        socket.broadcast.to(roomid).emit('user-disconnected',userid)
-        })
+io.on('connection',socket=>{
+    socket.on('join-room',(roomId,userid)=>{
+        socket.join(roomId);
+        socket.broadcast.to(roomId).emit('user-connected',userid);
     })
 })
-
-if(process.env.PROD){
-    app.use(express.static(path.join(__dirname,'../videochat/public')));
-    app.get('*',(req,res)=>{
-        res.sendFile(path.join(__dirname,'../videochat/public/script.js'));
-    });
-}
-
-const port = process.env.PORT || 9000;
-server.listen(port)
+server.listen(9000);
